@@ -1,0 +1,498 @@
+/* Общие стили */
+html {
+    background-color: #f8f3f3; /* Черный фон */
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0 !important; /* Важно! Сбрасываем отступы по умолчанию */
+    padding: 0 !important; /* Важно! Сбрасываем внутренние отступы по умолчанию */
+    background-color: #e6dfdf;
+    color: #080808;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main { /* Оборачиваем контент между header и footer в тег main */
+    flex: 1; /* Занимает все доступное пространство */
+}
+
+.container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Стили для header */
+header {
+    background-color: #e6dfdf; /* Темно-серый фон */
+    padding: 50px 0;
+    /*text-align: center;  Убираем эту строку */
+    display: flex; /* Добавляем эту строку */
+    justify-content: space-between; /*  Размещаем элементы по краям */
+    align-items: center; /*  Выравниваем элементы по вертикали */
+    height: 600px;
+}
+
+.header-text{
+    height: 480px;
+    width: 50%;
+    text-align: left;
+    margin-left: 70px;
+}
+
+.header-text h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 70px;
+}
+
+.header-text p {
+    font-size: 1.2em;
+    margin-bottom: 50px;
+}
+
+
+
+.price-box {
+    position: relative;
+    display: inline-block;
+    padding: 5px;
+    padding-left: calc(2.5%);
+    border: 2px solid #e6dfdf;
+    border-radius: 5px;
+    overflow: hidden;
+    color: rgb(12, 12, 12); /* Цвет текста */
+    z-index: 1; /* Явно задаем z-index */
+}
+
+.price-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    background-color: #79a8c2;
+    z-index: -1; /* Явно задаем z-index ниже текста */
+}
+
+.price-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 5%;
+    width: 95%;
+    height: 100%;
+    background-color: #e6dfdf;
+    z-index: -1; /* Явно задаем z-index ниже текста */
+}
+
+
+
+.header-text2 {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    gap: 100px;
+}
+
+.header-text2 p {
+    font-size: 1em;
+    white-space: normal;
+}
+
+.header-text2 img{
+width: 60px;        /* Задайте желаемую ширину иконки */
+    height: 60px;       /* Задайте желаемую высоту иконки */
+    vertical-align: middle; /* Убедимся, что иконка выровнена по центру */
+}
+
+header img {
+    max-width: 40%;
+    border-radius: 10px;
+    margin-bottom: 20px; /* Добавил отступ снизу */
+    margin-right: 100px;
+}
+
+.price-list {
+    margin-bottom: 30px; /* Отступ снизу */
+  }
+
+  .price-list h2{
+    text-align: center;
+  }
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    display: table; /* Важно: задаем табличное отображение */
+  }
+  
+  .price-table-header {
+    font-weight: bold;
+    display: table-row; /* Важно: задаем отображение как строка таблицы */
+  }
+
+  .price-table-column {
+    padding: 10px;
+    padding-left: 100px;
+    border: 1px solid #ddd;
+    text-align: left;
+    border-bottom: 1px solid #9b9898;
+    display: table-cell; /* Важно: задаем отображение как ячейка таблицы */
+    vertical-align: top; /* Выравниваем по верхнему краю (если текст в колонке услуги длинный) */
+  }
+  
+  .price-table-row {
+    display: table-row; /* Важно: задаем отображение как строка таблицы */
+  }
+  
+  .price-table-column.price {
+    text-align: left;
+  }
+  .service-item {
+    padding-left: 100px;
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .price-table {
+      display: block;
+    }
+  
+    .price-table-header {
+      display: none;
+    }
+  
+    .price-table-row {
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      display: block; /* Возвращаем блочное отображение для адаптивности */
+    }
+  
+    .price-table-column {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      border: none;
+      padding: 5px;
+    }
+  
+    .price-table-column.price {
+      text-align: left;
+      padding-left: 20px;
+    }
+  
+    .service-item:before {
+      content: "Услуга: ";
+      font-weight: bold;
+    }
+  
+    .price:before {
+      content: "Цена: ";
+      font-weight: bold;
+    }
+  }
+
+/* Стили для portfolio */
+#portfolio {
+    padding: 30px 0;
+    width: 100%;
+    background-color: #e6dfdf;
+}
+
+#portfolio h2 {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Разрешаем перенос на новую строку */
+}
+
+.gallery img {
+    max-width: 300px;
+    border-radius: 10px;
+    margin-bottom: 20px; /* Добавил отступ снизу */
+    height: 350px;
+}
+
+.twentytwenty-container {
+    width: 300px; /* Фиксированная ширина контейнера */
+    height: 350px; /* Фиксированная высота контейнера */
+    overflow: hidden; /*  Скрываем все, что выходит за границы контейнера */
+}
+
+.work-stages {
+    margin-bottom: 100px;
+  }
+  
+  .work-stages h2{
+    text-align: center;
+  }
+  .stages-container {
+    display: flex;         /* Выстраиваем квадраты в ряд */
+    flex-wrap: wrap;       /* Переносим на новую строку, если не помещаются */
+    justify-content: center; /* Центрируем квадраты по горизонтали */
+    width: 1800px;
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  .stage {
+    width: 250px;           /* Ширина квадрата */
+    height: 200px;          /* Высота квадрата */
+    border: 1px solid black; /* Черная рамка */
+    margin: 30px;           /* Отступ между квадратами */
+    text-align: center;    /* Центрируем текст и изображение внутри квадрата */
+    display: flex;         /* Используем flexbox для вертикального выравнивания */
+    flex-direction: column;  /* Выстраиваем контент в колонку */
+    justify-content: center; /* Центрируем контент по вертикали */
+    align-items: center;     /* Центрируем контент по горизонтали */
+  }
+  
+  .stage img {
+    max-width: 80px;       /* Максимальная ширина изображения */
+    max-height: 80px;      /* Максимальная высота изображения */
+    margin-bottom: 10px;   /* Отступ между изображением и текстом */
+  }
+  
+  /* Адаптивность (для небольших экранов) */
+  @media (max-width: 768px) {
+    .stages-container {
+      flex-direction: column; /* Выстраиваем квадраты в колонку на маленьких экранах */
+      align-items: center;     /* Центрируем квадраты по горизонтали */
+    }
+  
+    .stage {
+      width: 80%;             /* Занимаем большую часть ширины экрана */
+      height: auto;           /* Автоматическая высота */
+      margin: 15px 0;          /* Отступы сверху и снизу */
+    }
+  }
+  
+
+.advantages{
+  margin-bottom: 30px;
+}
+
+.advantages h2{
+  text-align: center;
+}
+
+.advantages-container{
+  display: flex;         /* Выстраиваем квадраты в ряд */
+    flex-wrap: wrap;       /* Переносим на новую строку, если не помещаются */
+    justify-content: center; /* Центрируем квадраты по горизонтали */
+    width: 1800px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.advant{
+  width: 250px;           /* Ширина квадрата */
+  height: 200px;          /* Высота квадрата */
+  border: 1px solid black; /* Черная рамка */
+  margin: 80px;           /* Отступ между квадратами */
+  text-align: center;    /* Центрируем текст и изображение внутри квадрата */
+  display: flex;         /* Используем flexbox для вертикального выравнивания */
+  flex-direction: column;  /* Выстраиваем контент в колонку */
+  justify-content: center; /* Центрируем контент по вертикали */
+  align-items: center;
+}
+
+.advant img{
+  max-width: 80px;       /* Максимальная ширина изображения */
+    max-height: 80px;      /* Максимальная высота изображения */
+    margin-bottom: 10px; 
+}
+
+/* Стили для contact */
+#contact {
+    background-color: #e6dfdf; /* Темно-серый фон */
+    padding: 30px 0;
+}
+
+#contact h2 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+#contact form {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center; /* Центрируем содержимое формы */
+}
+
+#contact input,
+#contact textarea {
+    width: 100%; /* Занимают всю ширину контейнера */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    background-color: #cad5db;
+    color: #141414;
+    border-radius: 5px;
+    box-sizing: border-box; /*  Чтобы padding не увеличивал общую ширину */
+}
+
+#contact button {
+    background-color: #e6dfdf;
+    color: #0e0d0d;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    border: 2px solid #0e0d0d; /* Задаем черный контур (ширину и цвет) */
+    background-clip: padding-box;
+}
+
+#contact button:hover {
+    background-color: #cad5db;
+}
+
+
+footer {
+    background-color: #151616; /* Темно-серый фон */
+    display: flex;           /* Важно: Используем flexbox */
+    flex-direction: column;
+    padding: 20px 0;
+    /*text-align: center;*/         
+    font-size: 0.9em;
+    width: 100%;
+    min-height: 250px;
+    color: #fff; /* Добавляем белый цвет текста, чтобы было видно на темном фоне */
+}
+
+footer .container {
+    display: flex;
+    justify-content: flex-start; /* ИЛИ justify-content: space-between; */
+    align-items: stretch;
+    height: 100%;
+    width: 75%;
+}
+
+footer .column {
+    text-align: justify;
+    /* width: 45%;  УБИРАЕМ ЭТУ СТРОКУ */
+    width: auto; /* Добавляем эту строку */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    margin-right: 80px;
+}
+
+
+
+
+footer .column h3 {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #f1eeee;
+}
+
+footer .column ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer .column ul li {
+    margin-bottom: 30px;
+}
+
+footer .column ul li a {
+    display: flex; /* Делаем ссылку flex-контейнером */
+    align-items: center; /* Выравниваем изображение и текст по вертикали */
+    color: #e6dfdf;
+    text-decoration: none;
+}
+
+footer .column ul li a:hover {
+    text-decoration: underline;
+}
+
+footer .column ul li img {
+    width: 20px;        /* Задайте желаемую ширину иконки */
+    height: 20px;       /* Задайте желаемую высоту иконки */
+    margin-right: 5px;  /* Добавляем небольшой отступ между иконкой и текстом */
+    vertical-align: middle; /* Убедимся, что иконка выровнена по центру */
+}
+
+footer .column ul li a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+/*  Дополнительный стиль для подписи авторских прав */
+footer .copyright {
+    margin-top: 20px;
+    text-align: right;
+    font-size: 0.8em;
+    color: #f3eeee;
+    padding: 0 20px 20px 0;
+}
+
+
+/* Стили для button */
+.button {
+    display: inline-block;
+    background-color: #e6dfdf;; /* Замените на желаемый цвет внутри кнопки */
+    color: #0e0d0d; /* Цвет текста */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 2px solid #0e0d0d; /* Задаем черный контур (ширину и цвет) */
+    background-clip: padding-box; /* Фон не выходит за рамки padding */
+}
+
+
+.button:hover {
+    background-color: #929090;
+}
+
+.top-navigation {
+  display: flex; /* Выравнивание элементов в строку */
+  justify-content: space-between; /* Равномерное распределение пространства между элементами */
+  align-items: center;
+  background-color: #121213; /* Светлый фон для навигации */
+  padding: 20px 100px 20px 0px;
+  margin-bottom: 10px; /* Отступ от заголовка */
+}
+
+.top-navigation a {
+  text-decoration: none; /* Убираем подчеркивание ссылок */
+  color: #f7f7f7; /* Цвет текста ссылок */
+  font-weight: bold;
+  transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
+}
+
+.top-navigation a:hover {
+  color: #79a8c2; /* Цвет при наведении 007bff */
+}
+
+
+
+ .logo-container { /* Стиль для контейнера логотипа */
+    width: 100px; /* Задайте нужную ширину контейнера */
+    height: 50px; /* Задайте нужную высоту контейнера */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px; /* Добавляем отступ справа от логотипа */
+}
+
+.logo-container img {
+    max-height: 50px; /* Ограничиваем высоту логотипа */
+    max-width: 100px; /* Ограничиваем ширину логотипа (опционально) */
+    height: auto; /* Сохраняем пропорции */
+    width: auto;
+}
